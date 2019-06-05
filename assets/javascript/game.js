@@ -1,4 +1,9 @@
 // Create a variable called randomNumber to equal a random number between 1-100 and
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+
+
 let randomNumber = Math.floor(Math.random()*150);
     console.log("random number is: "+ randomNumber);
     // Show value in .randomNumber
@@ -53,15 +58,79 @@ $(".crystal1").on("click", function(){
     }
     else if(totalScore > randomNumber){
         losses++;
-        $("#losses").html(losses);
+        $(".losses").html("Losses: " + losses);
         console.log("losses are:" + losses);
         resetScore();}
     else {
         wins++;
-        $("#wins").html(wins);
+        $(".wins").html("Wins: " + wins);
         console.log("wins are: "+ wins)
         resetScore();
     }
     
 })
 
+$(".crystal2").on("click", function(){
+    totalScore = crystal2 + totalScore;
+    console.log("totalScore is: " + totalScore);
+
+    if(totalScore < randomNumber){
+            $(".totalScore").html(totalScore);        
+    }
+    else if(totalScore > randomNumber){
+        losses++;
+        $(".losses").html("Losses: "+ losses);
+        console.log("losses are:" + losses);
+        resetScore();}
+    else {
+        wins++;
+        $(".wins").html("Wins: "+ wins);
+        console.log("wins are: "+ wins)
+        resetScore();
+    }
+    
+})
+
+$(".crystal3").on("click", function(){
+    totalScore = crystal3 + totalScore;
+    console.log("totalScore is: " + totalScore);
+
+    if(totalScore < randomNumber){
+            $(".totalScore").html(totalScore);        
+    }
+    else if(totalScore > randomNumber){
+        losses++;
+        $(".losses").html("Losses: "+ losses);
+        console.log("losses are:" + losses);
+        resetScore();}
+    else {
+        wins++;
+        $(".wins").html("Wins: " + wins);
+        console.log("wins are: "+ wins)
+        resetScore();
+    }
+    
+})
+
+$(".crystal4").on("click", function(){
+    totalScore = crystal4 + totalScore;
+    console.log("totalScore is: " + totalScore);
+
+    if(totalScore < randomNumber){
+            $(".totalScore").html(totalScore);        
+    }
+    else if(totalScore > randomNumber){
+        losses++;
+        $(".losses").html("Losses: "+ losses);
+        console.log("losses are:" + losses);
+        resetScore();}
+    else {
+        wins++;
+        $(".wins").html("Wins: "+ wins);
+        console.log("wins are: "+ wins)
+        resetScore();
+    }
+    
+})
+
+});
