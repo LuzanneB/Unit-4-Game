@@ -20,14 +20,16 @@ totalScore = 0
 wins = 0
 losses = 0
 
-// Create a function to reset randomNumber, crystal1-4, totalScore
+// Create a function to reset randomNumber, crystal1-4, totalScore, and empty div for total score
 function resetScore(){
     randomNumber = Math.floor(Math.random()*100);
     crystal1 = Math.floor(Math.random()*100);
     crystal2 = Math.floor(Math.random()*100);
     crystal3= Math.floor(Math.random()*100);
     crystal4 = Math.floor(Math.random()*100);
-    totalScore = Math.floor(Math.random()*100);
+    totalScore = 0;
+    $(".randomNumber").html(randomNumber);
+    $(".totalScore").html("0");
 }
 
 
@@ -41,7 +43,7 @@ function resetScore(){
         // +1 to wins variable and update #wins
         // run reset function created above
 
-        
+
 $(".crystal1").on("click", function(){
     totalScore = crystal1 + totalScore;
     console.log("totalScore is: " + totalScore);
@@ -50,15 +52,16 @@ $(".crystal1").on("click", function(){
             $(".totalScore").html(totalScore);        
     }
     else if(totalScore > randomNumber){
-        $("#losses").html(losses++);
-        console.log("losses are:" + losses)
-        resetScore();
+        losses++;
+        $("#losses").html(losses);
+        console.log("losses are:" + losses);
+        resetScore();}
     else {
-        $("#wins").html(wins++)
+        wins++;
+        $("#wins").html(wins);
         console.log("wins are: "+ wins)
         resetScore();
     }
-
-    }
+    
 })
 
