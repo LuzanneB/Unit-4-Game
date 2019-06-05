@@ -1,5 +1,5 @@
 // Create a variable called randomNumber to equal a random number between 1-100 and
-let randomNumber = Math.floor(Math.random()*100);
+let randomNumber = Math.floor(Math.random()*150);
     console.log("random number is: "+ randomNumber);
     // Show value in .randomNumber
     $(".randomNumber").html(randomNumber);
@@ -8,11 +8,11 @@ let randomNumber = Math.floor(Math.random()*100);
 let crystal1=Math.floor(Math.random()*15);
     console.log("crystal1 is "+ crystal1);
 let crystal2=Math.floor(Math.random()*15);
-    console.log("crystal2 is " + crystal2)
+    console.log("crystal2 is " + crystal2);
 let crystal3=Math.floor(Math.random()*15);
-    console.log("crystal3 is " +crystal3)
+    console.log("crystal3 is " +crystal3);
 let crystal4=Math.floor(Math.random()*15);
-    console.log("crystal4 is "+ crystal4)
+    console.log("crystal4 is "+ crystal4);
 
 
 // Create a variable called totalScore, wins & losses equal to 0.
@@ -33,10 +33,32 @@ function resetScore(){
 
 
 // Create click event, so that when crystal images are clicked the current value of crystal adds to the totalScore value 
-    // if the totalScore is less than randomNumber, update #totalScore with totalScore
-    // if the totalScore is more than randomNumber,
-        // +1 to losses variable and update #losses
+ // if the totalScore is less than randomNumber, update #totalScore with totalScore
+ // if the totalScore is more than randomNumber,
+// +1 to losses variable and update #losses
         // run reset function created above
     // if the totalScore is equal to randomNumber
         // +1 to wins variable and update #wins
         // run reset function created above
+
+        
+$(".crystal1").on("click", function(){
+    totalScore = crystal1 + totalScore;
+    console.log("totalScore is: " + totalScore);
+
+    if(totalScore < randomNumber){
+            $(".totalScore").html(totalScore);        
+    }
+    else if(totalScore > randomNumber){
+        $("#losses").html(losses++);
+        console.log("losses are:" + losses)
+        resetScore();
+    else {
+        $("#wins").html(wins++)
+        console.log("wins are: "+ wins)
+        resetScore();
+    }
+
+    }
+})
+
