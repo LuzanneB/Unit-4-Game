@@ -28,10 +28,15 @@ losses = 0
 // Create a function to reset randomNumber, crystal1-4, totalScore, and empty div for total score
 function resetScore(){
     randomNumber = Math.floor(Math.random()*100);
-    crystal1 = Math.floor(Math.random()*100);
-    crystal2 = Math.floor(Math.random()*100);
-    crystal3= Math.floor(Math.random()*100);
-    crystal4 = Math.floor(Math.random()*100);
+    console.log("random number: " + randomNumber);
+    crystal1 = Math.floor(Math.random()*15);
+    console.log("crystal1 is: " + crystal1);
+    crystal2 = Math.floor(Math.random()*15);
+    console.log("crystal2 is: " + crystal2)
+    crystal3= Math.floor(Math.random()*15);
+    console.log("crystal3 is: " + crystal3);
+    crystal4 = Math.floor(Math.random()*15);
+    console.log("crystal4 is: " + crystal4);
     totalScore = 0;
     $(".randomNumber").html(randomNumber);
     $(".totalScore").html("0");
