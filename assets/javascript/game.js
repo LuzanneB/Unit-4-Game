@@ -2,28 +2,17 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
+// set global variables
+let randomNumber;
+let crystal1;
+let crystal2;
+let crystal3;
+let crystal4;
+let totalScore = 0;
+let wins = 0;
+let losses = 0;
 
-
-let randomNumber = Math.floor(Math.random()*150);
-    console.log("random number is: "+ randomNumber);
-    // Show value in .randomNumber
-    $(".randomNumber").html(randomNumber);
-
-// Create a variable called crystal1, crystal2, crystal3,crystal4 all to random # between 1-100.
-let crystal1=Math.floor(Math.random()*15);
-    console.log("crystal1 is "+ crystal1);
-let crystal2=Math.floor(Math.random()*15);
-    console.log("crystal2 is " + crystal2);
-let crystal3=Math.floor(Math.random()*15);
-    console.log("crystal3 is " +crystal3);
-let crystal4=Math.floor(Math.random()*15);
-    console.log("crystal4 is "+ crystal4);
-
-
-// Create a variable called totalScore, wins & losses equal to 0.
-totalScore = 0
-wins = 0
-losses = 0
+resetScore();
 
 // Create a function to reset randomNumber, crystal1-4, totalScore, and empty div for total score
 function resetScore(){
