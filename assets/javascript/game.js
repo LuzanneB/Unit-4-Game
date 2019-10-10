@@ -12,11 +12,23 @@ let totalScore = 0;
 let wins= localStorage.getItem("wins")
 let losses= localStorage.getItem("losses")
 
-// console.log("wins are: "+ wins)
-// console.log("losses are:" + losses);
+console.log("wins are: "+ wins)
+console.log("losses are:" + losses);
 
-$(".wins").text("Wins: " + (localStorage.getItem("wins")))
-$(".losses").text("Losses: " + (localStorage.getItem("losses")))
+if(wins === null){
+    $(".wins").text("Wins: 0");
+}
+else{
+    $(".wins").text("Wins: " + (localStorage.getItem("wins")))
+}
+
+if(losses === null){
+    $(".losses").text("Losses: 0");
+}
+else{
+    $(".losses").text("Losses: " + (localStorage.getItem("losses")))
+}
+
 
 resetScore();
 
@@ -48,8 +60,7 @@ function playGame(){
     else if(totalScore > randomNumber){
         $(".modalLoss").modal("show");
         losses++;
-        // $(".losses").html("Losses: " + losses);
-        // console.log("losses are:" + losses);
+        console.log("losses are:" + losses);
         updateLocal();
         resetScore();
     }
@@ -57,9 +68,8 @@ function playGame(){
     else {
         $(".modalWin").modal("show");
         wins++;
+        console.log("wins are: "+ wins)
         updateLocal();
-        // $(".wins").html("Wins: " + wins);
-        // console.log("wins are: "+ wins)
         resetScore();
     }
 }
@@ -67,8 +77,20 @@ function updateLocal () {
     // store wins and losses to local storage
     localStorage.setItem("wins", wins);
     localStorage.setItem("losses", losses);
-    $(".wins").text("Wins: " + (localStorage.getItem("wins")))
-    $(".losses").text("Losses: " + (localStorage.getItem("losses")))
+    if(wins === null){
+        $(".wins").text("Wins: 0");
+    }
+    else{
+        $(".wins").text("Wins: " + (localStorage.getItem("wins")))
+    }
+    
+    if(losses === null){
+        $(".losses").text("Losses: 0");
+    }
+    else{
+        $(".losses").text("Losses: " + (localStorage.getItem("losses")))
+    }
+
 }
 // Create click event, so that when crystal images are clicked the current value of crystal adds to the totalScore value and runs playGame()
  
