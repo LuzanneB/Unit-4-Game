@@ -9,8 +9,14 @@ let crystal2;
 let crystal3;
 let crystal4;
 let totalScore = 0;
-let wins = 0;
-let losses = 0;
+let wins= localStorage.getItem("wins")
+let losses= localStorage.getItem("losses")
+
+// console.log("wins are: "+ wins)
+// console.log("losses are:" + losses);
+
+$(".wins").text("Wins: " + (localStorage.getItem("wins")))
+$(".losses").text("Losses: " + (localStorage.getItem("losses")))
 
 resetScore();
 
@@ -42,19 +48,28 @@ function playGame(){
     else if(totalScore > randomNumber){
         $(".modalLoss").modal("show");
         losses++;
-        $(".losses").html("Losses: " + losses);
-        console.log("losses are:" + losses);
-        resetScore();}
+        // $(".losses").html("Losses: " + losses);
+        // console.log("losses are:" + losses);
+        updateLocal();
+        resetScore();
+    }
     // if the total score is equal to the random, increment wins and reset the game
     else {
         $(".modalWin").modal("show");
         wins++;
-        $(".wins").html("Wins: " + wins);
-        console.log("wins are: "+ wins)
+        updateLocal();
+        // $(".wins").html("Wins: " + wins);
+        // console.log("wins are: "+ wins)
         resetScore();
     }
 }
-
+function updateLocal () {
+    // store wins and losses to local storage
+    localStorage.setItem("wins", wins);
+    localStorage.setItem("losses", losses);
+    $(".wins").text("Wins: " + (localStorage.getItem("wins")))
+    $(".losses").text("Losses: " + (localStorage.getItem("losses")))
+}
 // Create click event, so that when crystal images are clicked the current value of crystal adds to the totalScore value and runs playGame()
  
 $(".crystal1").on("click", function(){
