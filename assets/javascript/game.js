@@ -31,99 +31,53 @@ function resetScore(){
     $(".totalScore").html("0");
 }
 
-
-
-// Create click event, so that when crystal images are clicked the current value of crystal adds to the totalScore value 
- // if the totalScore is less than randomNumber, update #totalScore with totalScore
- // if the totalScore is more than randomNumber,
-// +1 to losses variable and update #losses
-        // run reset function created above
-    // if the totalScore is equal to randomNumber
-        // +1 to wins variable and update #wins
-        // run reset function created above
-
-
-$(".crystal1").on("click", function(){
-    totalScore = crystal1 + totalScore;
+// runs the game after crystal is clicked
+function playGame(){
+    // check if the total score is less than the random, if it is display the current total score
     console.log("totalScore is: " + totalScore);
-
     if(totalScore < randomNumber){
             $(".totalScore").html(totalScore);        
     }
+    // if total score is greater than random, increment loss counter and reset the game
     else if(totalScore > randomNumber){
+        $(".modalLoss").modal("show");
         losses++;
         $(".losses").html("Losses: " + losses);
         console.log("losses are:" + losses);
         resetScore();}
+    // if the total score is equal to the random, increment wins and reset the game
     else {
+        $(".modalWin").modal("show");
         wins++;
         $(".wins").html("Wins: " + wins);
         console.log("wins are: "+ wins)
         resetScore();
     }
+}
+
+// Create click event, so that when crystal images are clicked the current value of crystal adds to the totalScore value and runs playGame()
+ 
+$(".crystal1").on("click", function(){
+    totalScore = crystal1 + totalScore;
+    playGame();
     
 })
 
 $(".crystal2").on("click", function(){
     totalScore = crystal2 + totalScore;
-    console.log("totalScore is: " + totalScore);
-
-    if(totalScore < randomNumber){
-            $(".totalScore").html(totalScore);        
-    }
-    else if(totalScore > randomNumber){
-        losses++;
-        $(".losses").html("Losses: "+ losses);
-        console.log("losses are:" + losses);
-        resetScore();}
-    else {
-        wins++;
-        $(".wins").html("Wins: "+ wins);
-        console.log("wins are: "+ wins)
-        resetScore();
-    }
+    playGame();
     
 })
 
 $(".crystal3").on("click", function(){
     totalScore = crystal3 + totalScore;
-    console.log("totalScore is: " + totalScore);
-
-    if(totalScore < randomNumber){
-            $(".totalScore").html(totalScore);        
-    }
-    else if(totalScore > randomNumber){
-        losses++;
-        $(".losses").html("Losses: "+ losses);
-        console.log("losses are:" + losses);
-        resetScore();}
-    else {
-        wins++;
-        $(".wins").html("Wins: " + wins);
-        console.log("wins are: "+ wins)
-        resetScore();
-    }
+    playGame();
     
 })
 
 $(".crystal4").on("click", function(){
     totalScore = crystal4 + totalScore;
-    console.log("totalScore is: " + totalScore);
-
-    if(totalScore < randomNumber){
-            $(".totalScore").html(totalScore);        
-    }
-    else if(totalScore > randomNumber){
-        losses++;
-        $(".losses").html("Losses: "+ losses);
-        console.log("losses are:" + losses);
-        resetScore();}
-    else {
-        wins++;
-        $(".wins").html("Wins: "+ wins);
-        console.log("wins are: "+ wins)
-        resetScore();
-    }
+    playGame();
     
 })
 
